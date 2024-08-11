@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+script_dir=$(dirname $(readlink -f $0))
+base=$(dirname $script_dir)
+cd $base/templates/seeds
+for file in $(ls); do
+  db=$(echo $file | sed -E "s/\.sql$//")
+  echo $db 
+  mysql -e "CREATE database $db"
+  /usr/bin/mysql $db < $file
+done

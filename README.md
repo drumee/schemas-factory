@@ -1,2 +1,2 @@
-# schemas-factory
-schemas-factory
+# schemas
+Drumee Database Schema
